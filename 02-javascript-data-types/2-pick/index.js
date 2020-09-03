@@ -5,14 +5,13 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
-  let arr = Object.entries(obj).filter(item => {
+  const arr = Object.entries(obj).filter(item => {
     for (let field of fields) {
-      if (item[0] == field) {
+      if (item[0] === field) {
         return true;
       }
     }
   });
   const res = Object.fromEntries(arr);
-  // console.log(arr);
   return res;
 };
