@@ -6,10 +6,12 @@ describe('javascript-data-types/sort-strings', () => {
   });
 
   it('should return a new sorted array', () => {
-    const arr = ['a', 'b', 'c'];
+    const arr = ['b', 'c', 'a'];
+    const arrCopy = [...arr];
     const sorted = sortStrings(arr);
 
     expect(arr === sorted).toBeFalsy();
+    expect(arr).toEqual(arrCopy);
   });
 
   it('should return sorted by "desc" array of strings', () => {
