@@ -5,5 +5,14 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
-
+  return Object.fromEntries(
+    Object.entries(obj).filter(item => {
+      for (let field of fields) {
+        if (item[0] == field) {
+          return false;
+        }
+      }
+      return true;
+    })
+  );
 };
