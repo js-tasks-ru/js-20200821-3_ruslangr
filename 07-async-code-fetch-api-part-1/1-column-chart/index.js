@@ -16,8 +16,6 @@ export default class ColumnChart {
                 link = ''
               } = {}) {
 
-    // this.data = [];
-
     this.url = new URL(url, BACK_URL);
     this.range = range;
     this.formatHeading = formatHeading;
@@ -39,9 +37,9 @@ export default class ColumnChart {
     this.url.searchParams.set('from', this.range.from.toISOString());
     this.url.searchParams.set('to', this.range.to.toISOString());
 
-    let response = await fetch(this.url.href);
+    const response = await fetch(this.url.href);
     if (response.ok) {
-      let json = await response.json();
+      const json = await response.json();
       this.data = json;
       if(json && Object.values(json).length){
         this.subElements.header.textContent = this.getTotalValue();
@@ -52,6 +50,7 @@ export default class ColumnChart {
 
     } else {
       console.error('Datafeed error');
+      this.render();
     }
   }
 

@@ -74,7 +74,6 @@ describe('async-code-fetch-api-part-1/column-chart', () => {
     await columnChart.update(new Date('2020-04-06'), new Date('2020-05-06'));
 
     const { body } = columnChart.subElements;
-
     expect(body.children.length).toEqual(Object.values(data).length);
   });
 
